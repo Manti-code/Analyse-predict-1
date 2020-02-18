@@ -316,7 +316,7 @@ date_parser(dates[:3])
 # 
 # ```
 
-# In[70]:
+# In[17]:
 
 
 ### START FUNCTION
@@ -329,24 +329,24 @@ def extract_municipality_hashtags(df):
     for i in df["Tweets"]:
         
         split_list=i.split()
-        c=0
+        flag1=False
         in_list=[]
         
         for a in split_list:
             if a.startswith("#"):
                 in_list.append(a.lower())
-                c+=1
-        if c>0:
+                flag1=True
+        if flag1 == True:
             h_list.append(in_list)
         else:
             h_list.append(np.nan)
             
-        d=0
+        flag2=False
         for key in mun_dict:
             if key in i:
                 mun_list.append(mun_dict[key])
-                d+=1
-        if d>0:
+                flag2 = True
+        if flag2==True:
             pass
         else:
             mun_list.append(np.nan)
@@ -359,7 +359,7 @@ def extract_municipality_hashtags(df):
 ### END FUNCTION
 
 
-# In[69]:
+# In[18]:
 
 
 extract_municipality_hashtags(twitter_df.copy())
