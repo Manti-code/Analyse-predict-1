@@ -116,33 +116,47 @@ stop_words_dict = {
 # - The standard deviation and variance values must be unbiased. **Hint:** use the `ddof` parameter in the corresponding numpy functions!
 # - All values in the returned `dict` should be rounded to 2 decimal places.
 
-# In[37]:
+# In[14]:
 
 
 ### START FUNCTION
 def dictionary_of_metrics(items):
     
-    list2 = sorted(items) #sort the list
-    sum_list = sum(list2) #add elements in the list to get sum
-    length_list = len(list2) #find the length of the list
+    """  Sort the list.
+         Add elements in the list to get sum.
+         Find the length of the list.     """
     
-    mean = sum_list/length_list #calc mean by didivind sum of list by no of elements in list
-    mean_r = round(mean,2)      # round mean to 2 decimal places
-    mid = (float(length_list/2))    # find the middle point of sorted list and make it an int  
+    list2 = sorted(items) 
+    sum_list = sum(list2) 
+    length_list = len(list2) 
     
-    median = round(np.median(items),2)
+    """Calc mean by dividing sum of list by no of elements in list and round mean to 2 decimal places. 
+       Find the median and round to 2 decimal places.     """
     
-    min_list2 = min(list2) #find the lowest value in list
-    max_list2 = max(list2) #find the highest value in list
+    mean = sum_list/length_list 
+    mean_r = round(mean,2)      
+    median = round(np.median(items),2) 
     
-    list_diff_sq = [] #create an empty list
-    for i in items:   #run a loop iterating through list
-        a = (i-mean)**2  #take each value subtract the mean from it, then square that value
-        list_diff_sq.append(a) #add the value to the new list
+    """ Find the lowest and highest values in list. """
+
+    min_list2 = min(list2) 
+    max_list2 = max(list2) 
     
-    variance = round(sum(list_diff_sq)/(length_list-1),2) #get sum of new list div by N-1 and rounded to 2 decimal places
+    """ Create an empty list.
+        Run a loop iterating through list.
+        Take each value subtract the mean from it, then square that value.
+        Add the value to list_diff_sq.  """
     
-    std_dev = round(variance**0.5,2) #calc sqrt of variance and round to 2 decimal places
+    list_diff_sq = [] 
+    for i in items:   
+        a = (i-mean)**2  
+        list_diff_sq.append(a) 
+        
+    """ Get sum of new list divided by N-1 and rounded to 2 decimal places. 
+        Calc sqrt of variance and round to 2 decimal places.        """    
+    
+    variance = round(sum(list_diff_sq)/(length_list-1),2) 
+    std_dev = round(variance**0.5,2) 
     
     
     dict1 = {'mean':mean_r,'median':median,
@@ -154,7 +168,7 @@ def dictionary_of_metrics(items):
 ### END FUNCTION
 
 
-# In[38]:
+# In[6]:
 
 
 dictionary_of_metrics(gauteng)
@@ -186,14 +200,20 @@ dictionary_of_metrics(gauteng)
 ### START FUNCTION
 def five_num_summary(items):
     
-    list1 = sorted(items)  #sorting the input list and saving it in a new variable
-    min_list = min(list1)  #finding the minimum value of list1 and saving it in a variable
-    max_list = max(list1)  #finding the maximum value of list1 and saving it in a variable
+    """ Sorting the input list and saving it in a new variable.
+        Finding the minimum value of list1 and saving it in a variable.
+        Finding the maximum value of list1 and saving it in a variable.  """
     
-    median = np.median(items) #using median fintion from mumpy to find the median of input values
+    list1 = sorted(items)  
+    min_list = min(list1)  
+    max_list = max(list1)  
     
-    q1 = np.quantile(items,0.25) #using quantile method from numpy to find the first quantile
-    q3 = np.quantile(items,0.75) #using quantile method from numpy to find the third quantile
+    """ Using median fintion from mumpy to find the median of input values.
+        Using quantile method from numpy to find the first and third quantile. """
+    
+    median = np.median(items) 
+    q1 = np.quantile(items,0.25) 
+    q3 = np.quantile(items,0.75) 
     
     
     dict1 = {'max':max_list,'median':median,'min':min_list,'q1':q1,'q3':q3}
@@ -246,13 +266,22 @@ five_num_summary(gauteng)
 ### START FUNCTION
 def date_parser(dates):
     
-    list1=[] #initiating empty list
-    list2=[] #initiating empty list
+    """ Initiating two empty lists """
     
-    for i in dates:                  #running a for loop through input dates list
-        list1.append(i.split(" "))   #using split fn to seperate dtae and time, saving it to list 1 
-    for i in list1:                  #run loop through list 1 
-        list2.append(i[0])           #taking the first value in list i.e dates and saving into another list
+    list1=[] 
+    list2=[] 
+    
+    """ Running a for loop through input dates list.
+        Using split fn to seperate date and time, saving it to list 1. """
+    
+    for i in dates:                  
+        list1.append(i.split(" "))  
+        
+    """ Run loop through list 1.
+        Taking the first value in list i.e dates and saving into another list.   """
+        
+    for j in list1:                  
+        list2.append(j[0])           
         
     return list2
 
@@ -669,36 +698,36 @@ word_splitter(twitter_df.copy())
 # - The function should return the modified dataframe.
 # 
 
-# In[99]:
+# In[12]:
 
 
 ### START FUNCTION
 def stop_words_remover(df):
     
-    list1=[]
+    list1=[] #initiating emply list1 and list2
     list2=[]
     
-    for i in df["Tweets"]:
-        list1.append(i.lower().split())
+    for i in df["Tweets"]:                         #run loop through data each row in Tweets column
+        list1.append(i.lower().split())            #splitting words in tweet as a lowercase, appending it to blank list1
     
-    for a in list1:
-        list3=[]
-        for j in a:
+    for a in list1:   #run a loop through list1
+        list3=[]      #creating an empty temp list
+        for j in a:   #run a loop into each list in list1
             
-            if j in stop_words_dict['stopwords']:
-                del j
+            if j in stop_words_dict['stopwords']:  #check if word is a stopword
+       l         del j #delete word if it is a stopword
             else:
-                list3.append(j)
+                list3.append(j) #append word to temp list if it is not a stopword
                 
-        list2.append(list3)  
+        list2.append(list3)  #add temp list to list2
         
-    df["Without Stop Words"] = list2
+    df["Without Stop Words"] = list2  #making list into new column in dataframe
     
     return df            
 ### END FUNCTION
 
 
-# In[102]:
+# In[13]:
 
 
 stop_words_remover(twitter_df.copy())
@@ -796,9 +825,3 @@ stop_words_remover(twitter_df.copy())
 #     </tr>
 #   </tbody>
 # </table>
-
-# In[ ]:
-
-
-
-
