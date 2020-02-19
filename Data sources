@@ -1,0 +1,6 @@
+Data Loading and Preprocessing
+
+Electricification by province (EBP) data
+  ebp_url = 'https://raw.githubusercontent.com/Explore-AI/Public-Data/master/Data/electrification_by_province.csv'
+Twitter data
+  twitter_url = 'https://raw.githubusercontent.com/Explore-AI/Public-Data/master/Data/twitter_nov_2019.csv'
