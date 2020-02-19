@@ -8,6 +8,5 @@ setup(
     long_description=open('README.md').read(),
     install_requires=['numpy','pandas>=0.20.0'],
     url='https://github.com/CallinR/analyse_predict.git',
-    author='<Jay Ramesh>',
-    author_email='<jayramesh01@gmail.com>' 
+    author='Jay Ramesh, Manti Mafokwane,Siyabonga Mtshemla,Callin Reeby,Kwazi Mnguni',
 )
