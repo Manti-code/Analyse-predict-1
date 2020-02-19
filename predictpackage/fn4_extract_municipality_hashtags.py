@@ -1,4 +1,15 @@
 ### START FUNCTION
+import numpy as np
+import pandas as pd
+mun_dict = {
+    '@CityofCTAlerts' : 'Cape Town',
+    '@CityPowerJhb' : 'Johannesburg',
+    '@eThekwiniM' : 'eThekwini' ,
+    '@EMMInfo' : 'Ekurhuleni',
+    '@centlecutility' : 'Mangaung',
+    '@NMBmunicipality' : 'Nelson Mandela Bay',
+    '@CityTshwane' : 'Tshwane'
+}
 def extract_municipality_hashtags(df):
     """ Extracts the municipality and hashtags from tweets. Adds extracted data to new columns
 

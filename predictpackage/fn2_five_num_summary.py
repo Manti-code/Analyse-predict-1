@@ -1,4 +1,5 @@
 ### START FUNCTION
+import numpy as np
 def five_num_summary(items):
     """" Calculates the min,max,median,first quartile and third quartile of input data
     Paremeters

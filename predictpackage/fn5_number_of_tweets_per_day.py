@@ -1,4 +1,6 @@
 ### START FUNCTION
+import numpy as np
+import pandas as pd
 def number_of_tweets_per_day(df):
     """Returns the number of tweets per day.
 

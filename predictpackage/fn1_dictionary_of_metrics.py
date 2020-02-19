@@ -1,4 +1,5 @@
 ### START FUNCTION
+import numpy as np
 def dictionary_of_metrics(items):
 
     """ Calculates the mean,median,min value,max value,variance and standard deviation for dataset

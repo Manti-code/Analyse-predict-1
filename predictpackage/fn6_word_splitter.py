@@ -1,4 +1,6 @@
 ### START FUNCTION
+import numpy as np
+import pandas as pd
 def word_splitter(df):
     """ Returns dataFrame with a new column of a list of indivdual words.
     Parameters
