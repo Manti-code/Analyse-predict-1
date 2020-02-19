@@ -4,12 +4,13 @@ Building Functions to Calculate Metrics using Eskom Data, Functions will calcula
 
 Function 1
 Calculates metrics from Eskom Data and returns metrics as a dictionary.
+Returns the mean,median,minimum value,maximum value,variance and standard deviation.
 
 Function 2
 Function that returns a dictionary of the 5 number summary.
 
 Function 3
-Function which takes in a date in one format and converts it into another format. Function takes in date
+Function which takes in a date and time and extracts just the date.Function takes in date
 and outputs a string.
 
 Function 4
