@@ -26,3 +26,11 @@ a list of individual words.
 
 Function 7
 Function that returns a dataframe with an added column of the tweet without stopwords.
+
+Contributors
+
+Manti Mafokwane: 
+Callin Reeby
+Siyabonga Mtshemla
+Jayadhayanandan Ramesh
+Kwazi Mnguni
