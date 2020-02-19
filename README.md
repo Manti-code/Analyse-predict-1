@@ -32,8 +32,12 @@ Function that returns a dataframe with an added column of the tweet without stop
 
 ### Contributors
 
-[Manti Mafokwane ](https://github.com/Manti-code/analyse_predict-1) 
-Callin Reeby 
-Siyabonga Mtshemla 
+[Manti Mafokwane ](https://github.com/Manti-code/analyse_predict-1)
+
+Callin Reeby
+
+Siyabonga Mtshemla
+
 Jayadhayanandan Ramesh 
+
 Kwazi Mnguni
